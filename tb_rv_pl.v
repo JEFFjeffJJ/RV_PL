@@ -19,16 +19,13 @@ module tb_rv_pl;
         $dumpfile("wave_pl.vcd");
         $dumpvars(0, tb_rv_pl);
 
-        $readmemh("test.mem", DUT.IMEM.RAM);
+        $readmemh("fibo.mem", DUT.IMEM.RAM);
 
         rst_n = 0;
         #20 rst_n = 1;
 
-        #200;
-        
-        $display("x1 = %d", DUT.RF.regs[1]);
-        $display("x2 = %d", DUT.RF.regs[2]);
-        $display("x3 = %d", DUT.RF.regs[3]);
+        #2000;
+        $display("FINAL RESULT (x10) = %d", DUT.RF.regs[10]);
         
         $finish;
     end
